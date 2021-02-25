@@ -4,7 +4,7 @@ import React from 'react'
 function User (props) {
 return(
     <tr>
-      <td>Pic</td>
+      <td>{props.image}</td>
       <td>{props.name}</td>
       <td>Otto</td>
       <td>@mdo</td>

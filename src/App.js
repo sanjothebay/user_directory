@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      
+      <SerachForm/>
 
       <Content/>
-
-      <SerachForm/>
 
     </div>
   );
