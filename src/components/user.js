@@ -1,38 +1,29 @@
 import React from 'react'
+import { Table } from 'react-bootstrap';
 
 function User (props) {
 return(
   <div>
-    {/* <p>{props.name}</p> */}
-    <table class="table">
+<Table striped bordered hover>
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>DOB</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <td>Pic</td>
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+      <td>1999</td>
     </tr>
   </tbody>
-</table>
+</Table>
   </div>
 )
  

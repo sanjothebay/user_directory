@@ -19,7 +19,7 @@ class Content extends React.Component {
     //   this.setState({users: res.data.results});
     // });
 
-    API.getMoreUsers('20').then(res => {
+    API.getMoreUsers('5').then(res => {
       console.log('RES', res.data.results);
       this.setState({users: res.data.results});
     });
