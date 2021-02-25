@@ -17,7 +17,7 @@ return(
   <tbody>
     <tr>
       <td>Pic</td>
-      <td>Mark</td>
+      <td>{props.name}</td>
       <td>Otto</td>
       <td>@mdo</td>
       <td>1999</td>
