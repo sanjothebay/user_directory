@@ -1,17 +1,22 @@
 import React from "react";
-import Form from 'react-bootstrap/Form'
-import Col from 'react-bootstrap/Col'
 
-function SerachForm() {
+function SearchForm(props) {
   return (
-    <Form>
-      <Form.Row className="align-items-center">
-        <Col sm={3} className="my-1">
-          <Form.Control id="inlineFormInputName" placeholder="Search" />
-        </Col>
-      </Form.Row>
-    </Form>
+    <form>
+      <div className="form-group">
+        <label htmlFor="search">Search:</label>
+        <input
+          onChange={props.handleInputChange}
+          value={props.search}
+          name="search"
+          type="text"
+          className="form-control"
+          placeholder="Filter By Search"
+          id="search"
+        />
+      </div>
+    </form>
   );
 }
 
-export default SerachForm;
+export default SearchForm;
