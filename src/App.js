@@ -2,7 +2,6 @@
 import './App.css';
 import Header from './components/header'
 import Content from './components/SearchResultContainer'
-import SerachForm from './components/SearchForm'
 
 
 function App() {

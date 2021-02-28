@@ -23,6 +23,10 @@ class SearchResultContainer extends React.Component {
 
   }
 
+  handlesSortChange = (event) => {
+    console.log("Click")
+  };
+
   handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -54,11 +58,11 @@ class SearchResultContainer extends React.Component {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>DOB</th>
+              <th >Image</th>
+              <th onClick={this.handlesSortChange}>Name</th>
+              <th onClick={this.handlesSortChange}>Phone</th>
+              <th onClick={this.handlesSortChange}>Email</th>
+              <th onClick={this.handlesSortChange}>DOB</th>
             </tr>
           </thead>
           <tbody>
