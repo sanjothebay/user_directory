@@ -33,7 +33,7 @@ class SearchResultContainer extends React.Component {
     const value = event.target.value;
     const result = this.state.users.filter((employee) => {
       console.log(employee.name);
-      let employeeStr = Object.values(employee.name.first).join("");
+      let employeeStr = Object.values(employee.name.first && employee.email && employee.phone && employee.birthdate ).join("");
       return employeeStr.toLowerCase().indexOf(value.toLowerCase()) !== -1;
     });
 
@@ -74,8 +74,8 @@ class SearchResultContainer extends React.Component {
                   name={user.name.first}
                   image={user.picture.thumbnail}
                   phone={user.phone}
-                  Email={user.email}
-                  Birthdate={user.dob.date}
+                  email={user.email}
+                  birthdate={user.dob.date}
                   key={i}
                 />
               );
