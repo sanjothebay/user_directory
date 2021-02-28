@@ -44,11 +44,7 @@ class Content extends React.Component {
           <tbody>
             {this.state.users.map((user, i) => {
               //console.log(user.name.first)
-              return <Users name={user.name.first} key={i} />;
-            })}
-            {this.state.users.map((user, i) => {
-              //console.log(user.name.first)
-              return <Users image={user.picture.thumbnail} key={i} />;
+              return <Users name={user.name.first} image={user.picture.thumbnail} phone={user.phone} Email={user.email} Birthdate={user.dob.date} key={i} />;
             })}
           </tbody>
         </Table>
