@@ -28,7 +28,7 @@ class SearchResultContainer extends React.Component {
     const value = event.target.value;
     const result = this.state.users.filter((employee) => {
       console.log(employee.name);
-      let employeeStr = Object.values(employee.name.first && employee.email && employee.phone && employee.birthdate ).join("");
+      let employeeStr = Object.values(employee.name.first && employee.email && employee.phone && employee.dob.date).join("");
       return employeeStr.toLowerCase().indexOf(value.toLowerCase()) !== -1;
     });
 
