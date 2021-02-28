@@ -6,7 +6,6 @@ import { Table } from "react-bootstrap";
 
 class SearchResultContainer extends React.Component {
   state = {
-    // name : "JC",
     users: [],
     search: "",
     results: [],
@@ -22,10 +21,6 @@ class SearchResultContainer extends React.Component {
       this.setState({ allUsers: res.data.results });
     });
 
-    // API.getMoreUsers('5').then(res => {
-    //   console.log('RES', res.data.results);
-    //   this.setState({users: res.data.results});
-    // });
   }
 
   handleInputChange = (event) => {
