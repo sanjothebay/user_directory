@@ -14,8 +14,6 @@ class SearchResultContainer extends React.Component {
   };
 
   componentDidMount() {
-    //make the call to the API
-    //thiss is going to execute only after the first render
     API.getUsers().then((res) => {
       this.setState({ users: res.data.results });
       this.setState({ allUsers: res.data.results });
@@ -27,7 +25,6 @@ class SearchResultContainer extends React.Component {
     copyOFusersBeingSorted.sort((a, b) =>
       a.email > b.email ? 1 : b.email > a.email ? -1 : 0
     );
-
     this.setState({
       users: copyOFusersBeingSorted,
     });
@@ -37,16 +34,9 @@ class SearchResultContainer extends React.Component {
     const name = event.target.name;
     const value = event.target.value;
     const result = this.state.users.filter((employee) => {
-      let employeeStr = Object.values(
-        employee.name.first &&
-          employee.name.last &&
-          employee.email &&
-          employee.phone &&
-          employee.dob.date
-      ).join("");
+      let employeeStr = Object.values(employee).join("");
       return employeeStr.toLowerCase().indexOf(value.toLowerCase()) !== -1;
     });
-
     this.setState({
       [name]: value,
     });
