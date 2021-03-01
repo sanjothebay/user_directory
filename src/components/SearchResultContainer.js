@@ -10,6 +10,7 @@ class SearchResultContainer extends React.Component {
     search: "",
     results: [],
     allUsers: [],
+    sort: "ase",
   };
 
   componentDidMount() {
@@ -24,20 +25,11 @@ class SearchResultContainer extends React.Component {
   }
 
   handlesSortChange = (event) => {
-    console.log("Click")
-    const name = event.target.name;
-    const value = event.target.value;
-    const result = this.state.users.sort((employee) => {
-      console.log(employee.name);
-      let employeeStr = Object.values(employee.name.first && employee.email && employee.phone && employee.dob.date).join("");
-      return employeeStr
-    });
-    console.log( result );
+    const copyOFusersBeingSorted = [...this.state.users]
+    copyOFusersBeingSorted.sort((a,b) => (a.email > b.email) ? 1 : ((b.email > a.email) ? -1 : 0))
+   
     this.setState({
-      [name]: value,
-    });
-    this.setState({
-      users: result,
+      users: copyOFusersBeingSorted,
     });
   };
 
