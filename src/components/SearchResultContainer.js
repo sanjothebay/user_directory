@@ -25,6 +25,20 @@ class SearchResultContainer extends React.Component {
 
   handlesSortChange = (event) => {
     console.log("Click")
+    const name = event.target.name;
+    const value = event.target.value;
+    const result = this.state.users.sort((employee) => {
+      console.log(employee.name);
+      let employeeStr = Object.values(employee.name.first && employee.email && employee.phone && employee.dob.date).join("");
+      return employeeStr
+    });
+    console.log( result );
+    this.setState({
+      [name]: value,
+    });
+    this.setState({
+      users: result,
+    });
   };
 
   handleInputChange = (event) => {
