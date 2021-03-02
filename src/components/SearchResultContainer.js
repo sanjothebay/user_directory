@@ -46,9 +46,9 @@ class SearchResultContainer extends React.Component {
     event.preventDefault()
     const name = event.target.name;
     const value = event.target.value;
-    const result = this.state.users.filter((employee) => {
+    const result = this.state.allUsers.filter((employee) => {
       let employeeStr = Object.values(employee).join("");
-      return employeeStr.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+      return employeeStr.toLowerCase().includes(value.toLowerCase());
     });
     this.setState({
       [name]: value,
