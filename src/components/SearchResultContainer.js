@@ -20,9 +20,10 @@ class SearchResultContainer extends React.Component {
     });
   }
 
-  handlesSortChange = () => {
+  handlesSortChange = (event) => {
+    event.preventDefault()
     const copyOFusersBeingSorted = [...this.state.users];
-    copyOFusersBeingSorted.sort((a, b) =>
+    copyOFusersBeingSorted.sort((a, b) => 
       a.email > b.email ? 1 : b.email > a.email ? -1 : 0
     );
     this.setState({
@@ -30,7 +31,19 @@ class SearchResultContainer extends React.Component {
     });
   };
 
+  handlesSortChange2 = (event) => {
+    event.preventDefault()
+    const copyOFusersBeingSorted = [...this.state.users];
+    copyOFusersBeingSorted.sort((a, b) => 
+      a.email > b.email ? -1 : b.email > a.email ? 1 : 0
+    );
+    this.setState({
+      users: copyOFusersBeingSorted,
+    });
+  };
+
   handleInputChange = (event) => {
+    event.preventDefault()
     const name = event.target.name;
     const value = event.target.value;
     const result = this.state.users.filter((employee) => {
@@ -58,10 +71,10 @@ class SearchResultContainer extends React.Component {
           <thead>
             <tr>
               <th>Image</th>
-              <th onClick={this.handlesSortChange}>Name</th>
-              <th onClick={this.handlesSortChange}>Phone</th>
-              <th onClick={this.handlesSortChange}>Email</th>
-              <th onClick={this.handlesSortChange}>DOB</th>
+              <th onClick={this.handlesSortChange} >Name</th>
+              <th  onClick={this.handlesSortChange2}>Phone</th>
+              <th onClick={this.handlesSortChange} >Email</th>
+              <th  onClick={this.handlesSortChange2}>DOB</th>
             </tr>
           </thead>
           <tbody>
