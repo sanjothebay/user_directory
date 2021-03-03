@@ -10,7 +10,7 @@ class SearchResultContainer extends React.Component {
     search: "",
     results: [],
     allUsers: [],
-    sort: "ase",
+    sort: "asc",
   };
 
   componentDidMount() {
@@ -21,33 +21,35 @@ class SearchResultContainer extends React.Component {
   }
 
   handlesSortChange = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const copyOFusersBeingSorted = [...this.state.users];
-    copyOFusersBeingSorted.sort((a, b) => 
-      a.email > b.email ? 1 : b.email > a.email ? -1 : 0
-    );
-    this.setState({
-      users: copyOFusersBeingSorted,
-    });
-  };
-
-  handlesSortChange2 = (event) => {
-    event.preventDefault()
-    const copyOFusersBeingSorted = [...this.state.users];
-    copyOFusersBeingSorted.sort((a, b) => 
-      a.email > b.email ? -1 : b.email > a.email ? 1 : 0
-    );
+    if (this.state.sort === "asc") {
+      this.setState({ sort: "dsc" });
+      copyOFusersBeingSorted.sort((a, b) =>
+        a.email > b.email ? 1 : b.email > a.email ? -1 : 0
+      );
+    } else {
+      this.setState({ sort: "asc" });
+      copyOFusersBeingSorted.sort((a, b) =>
+        a.email > b.email ? -1 : b.email > a.email ? 1 : 0
+      );
+    }
     this.setState({
       users: copyOFusersBeingSorted,
     });
   };
 
   handleInputChange = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const name = event.target.name;
     const value = event.target.value;
+    console.log(this.state.allUsers);
     const result = this.state.allUsers.filter((employee) => {
-      let employeeStr = Object.values(employee).join("");
+      let employeeStr = Object.values({
+        ...employee,
+        dob: employee.dob.date,
+      }).join("");
+      console.log(employeeStr);
       return employeeStr.toLowerCase().includes(value.toLowerCase());
     });
     this.setState({
@@ -71,10 +73,10 @@ class SearchResultContainer extends React.Component {
           <thead>
             <tr>
               <th>Image</th>
-              <th onClick={this.handlesSortChange} >Name</th>
-              <th  onClick={this.handlesSortChange2}>Phone</th>
-              <th onClick={this.handlesSortChange} >Email</th>
-              <th  onClick={this.handlesSortChange2}>DOB</th>
+              <th onClick={this.handlesSortChange}>Name</th>
+              <th onClick={this.handlesSortChange}>Phone</th>
+              <th onClick={this.handlesSortChange}>Email</th>
+              <th onClick={this.handlesSortChange}>DOB</th>
             </tr>
           </thead>
           <tbody>
